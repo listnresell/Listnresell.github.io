@@ -32,7 +32,7 @@
       <a class="hover:text-blue-600 font-medium" href="#">
        Contact
       </a>
-      <a class="hover:text-blue-600 font-medium" href="#">
+      <a class="hover:text-blue-600 font-medium" href="admin-dashboard.html">
        Support Tickets
       </a>
      </nav>
@@ -53,7 +53,7 @@
      <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" href="#">
       Contact
      </a>
-     <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" href="#">
+     <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" href="admin-dashboard.html">
       Support Tickets
      </a>
     </nav>
@@ -176,6 +176,9 @@
    const form = document.getElementById('supportTicketForm');
    const responseMessage = document.getElementById('responseMessage');
 
+   // Use localStorage key for tickets
+   const TICKETS_STORAGE_KEY = 'supportTickets';
+
    form.addEventListener('submit', async (e) => {
      e.preventDefault();
 
@@ -192,32 +195,45 @@
      // Collect form data
      const formData = new FormData(form);
 
-     // Prepare data to send
-     const data = {
+     // Prepare data to save
+     const ticket = {
+       id: crypto.randomUUID(),
        name: formData.get('name').trim(),
        email: formData.get('email').trim(),
        subject: formData.get('subject').trim(),
        category: formData.get('category'),
        description: formData.get('description').trim(),
+       createdAt: new Date().toISOString(),
+       attachmentName: null,
+       attachmentType: null,
+       attachmentData: null
      };
 
      // Handle attachment if any
      const attachmentFile = formData.get('attachment');
      if (attachmentFile && attachmentFile.size > 0) {
-       // Convert file to base64 string
-       data.attachment = await fileToBase64(attachmentFile);
-       data.attachmentName = attachmentFile.name;
-       data.attachmentType = attachmentFile.type;
+       try {
+         ticket.attachmentData = await fileToBase64(attachmentFile);
+         ticket.attachmentName = attachmentFile.name;
+         ticket.attachmentType = attachmentFile.type;
+       } catch (err) {
+         responseMessage.textContent = 'Failed to read attachment file.';
+         responseMessage.className = 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md';
+         return;
+       }
      }
 
      try {
-       // Simulate sending data to a server
-       // Replace this with your actual API endpoint and method
-       // For demo, we just wait 1 second and show success
+       // Get existing tickets from localStorage
+       const existingTickets = JSON.parse(localStorage.getItem(TICKETS_STORAGE_KEY)) || [];
 
-       await new Promise((resolve) => setTimeout(resolve, 1000));
+       // Add new ticket
+       existingTickets.push(ticket);
 
-       // On success:
+       // Save back to localStorage
+       localStorage.setItem(TICKETS_STORAGE_KEY, JSON.stringify(existingTickets));
+
+       // Show success message
        responseMessage.textContent = 'Your support ticket has been submitted successfully. We will get back to you shortly.';
        responseMessage.className = 'bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md';
 
@@ -238,4 +254,4 @@
    }
   </script>
  </body>
-</html>
+</html>     
