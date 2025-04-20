@@ -1,257 +1,306 @@
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Support Ticket
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Support Ticket</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
   <style>
-   body {
-      font-family: 'Inter', sans-serif;
+    body {
+      font-family: "Inter", sans-serif;
     }
   </style>
- </head>
- <body class="bg-gray-50 min-h-screen flex flex-col">
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
   <header class="bg-white shadow">
-   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center py-4">
-     <h1 class="text-2xl font-semibold text-gray-900">
-      Support Center
-     </h1>
-     <nav class="hidden md:flex space-x-6 text-gray-700">
-      <a class="hover:text-blue-600 font-medium" href="https://listnresell.github.io/" target="_blank" rel="noopener noreferrer">
-       Home
-      </a>
-      <a class="hover:text-blue-600 font-medium" href="#">
-       Knowledge Base
-      </a>
-      <a class="hover:text-blue-600 font-medium" href="#">
-       Contact
-      </a>
-      <a class="hover:text-blue-600 font-medium" href="admin-dashboard.html">
-       Support Tickets
-      </a>
-     </nav>
-     <button aria-label="Open menu" class="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600" id="mobile-menu-button">
-      <i class="fas fa-bars fa-lg">
-      </i>
-     </button>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <h1 class="text-2xl font-semibold text-gray-900">Support Center</h1>
+        <nav class="hidden md:flex space-x-6 text-gray-700">
+          <a
+            class="hover:text-blue-600 font-medium"
+            href="https://listnresell.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Home</a
+          >
+          <a class="hover:text-blue-600 font-medium" href="#">Knowledge Base</a>
+          <a class="hover:text-blue-600 font-medium" href="#">Contact</a>
+          <a class="hover:text-blue-600 font-medium" href="admin-dashboard.html"
+            >Support Tickets</a
+          >
+        </nav>
+        <button
+          aria-label="Open menu"
+          class="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600"
+          id="mobile-menu-button"
+        >
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+      </div>
     </div>
-   </div>
-   <div class="md:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
-    <nav class="px-4 py-3 space-y-1">
-     <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" href="https://listnresell.github.io/" target="_blank" rel="noopener noreferrer">
-      Home
-     </a>
-     <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" href="#">
-      Knowledge Base
-     </a>
-     <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" href="#">
-      Contact
-     </a>
-     <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" href="admin-dashboard.html">
-      Support Tickets
-     </a>
-    </nav>
-   </div>
+    <div class="md:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
+      <nav class="px-4 py-3 space-y-1">
+        <a
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+          href="https://listnresell.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Home</a
+        >
+        <a
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+          href="#"
+          >Knowledge Base</a
+        >
+        <a
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+          href="#"
+          >Contact</a
+        >
+        <a
+          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+          href="admin-dashboard.html"
+          >Support Tickets</a
+        >
+      </nav>
+    </div>
   </header>
   <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-   <h2 class="text-3xl font-semibold text-gray-900 mb-8 text-center">
-    Submit a Support Ticket
-   </h2>
-   <form action="#" class="bg-white shadow-md rounded-lg p-8 max-w-3xl mx-auto" id="supportTicketForm" method="POST" novalidate="">
-    <div class="mb-6">
-     <label class="block text-gray-700 font-medium mb-2" for="name">
-      Full Name
-      <span class="text-red-600">
-       *
-      </span>
-     </label>
-     <input class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="name" name="name" placeholder="Your full name" required="" type="text"/>
-    </div>
-    <div class="mb-6">
-     <label class="block text-gray-700 font-medium mb-2" for="email">
-      Email Address
-      <span class="text-red-600">
-       *
-      </span>
-     </label>
-     <input class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
-    </div>
-    <div class="mb-6">
-     <label class="block text-gray-700 font-medium mb-2" for="subject">
-      Subject
-      <span class="text-red-600">
-       *
-      </span>
-     </label>
-     <input class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="subject" name="subject" placeholder="Brief summary of your issue" required="" type="text"/>
-    </div>
-    <div class="mb-6">
-     <label class="block text-gray-700 font-medium mb-2" for="category">
-      Category
-      <span class="text-red-600">
-       *
-      </span>
-     </label>
-     <select class="w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="category" name="category" required="">
-      <option disabled="" selected="" value="">
-       Select a category
-      </option>
-      <option value="technical">
-       Technical Issue
-      </option>
-      <option value="billing">
-       Billing
-      </option>
-      <option value="account">
-       Account Management
-      </option>
-      <option value="feature">
-       Feature Request
-      </option>
-      <option value="other">
-       Other
-      </option>
-     </select>
-    </div>
-    <div class="mb-6">
-     <label class="block text-gray-700 font-medium mb-2" for="description">
-      Description
-      <span class="text-red-600">
-       *
-      </span>
-     </label>
-     <textarea class="w-full border border-gray-300 rounded-md px-4 py-3 resize-y focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="description" name="description" placeholder="Please provide a detailed description of your issue" required="" rows="6"></textarea>
-    </div>
-    <div class="mb-6">
-     <label class="block text-gray-700 font-medium mb-2" for="attachment">
-      Attachment (optional)
-     </label>
-     <input accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" class="w-full text-gray-700" id="attachment" name="attachment" type="file"/>
-    </div>
-    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" type="submit">
-     Submit Ticket
-    </button>
-   </form>
-   <div class="max-w-3xl mx-auto mt-8" id="responseMessage" role="alert" aria-live="polite"></div>
+    <h2 class="text-3xl font-semibold text-gray-900 mb-8 text-center">
+      Submit a Support Ticket
+    </h2>
+    <form
+      action="#"
+      class="bg-white shadow-md rounded-lg p-8 max-w-3xl mx-auto"
+      id="supportTicketForm"
+      method="POST"
+      novalidate=""
+    >
+      <div class="mb-6">
+        <label class="block text-gray-700 font-medium mb-2" for="name">
+          Full Name <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          id="name"
+          name="name"
+          placeholder="Your full name"
+          required=""
+          type="text"
+        />
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 font-medium mb-2" for="email">
+          Email Address <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          required=""
+          type="email"
+        />
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 font-medium mb-2" for="subject">
+          Subject <span class="text-red-600">*</span>
+        </label>
+        <input
+          class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          id="subject"
+          name="subject"
+          placeholder="Brief summary of your issue"
+          required=""
+          type="text"
+        />
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 font-medium mb-2" for="category">
+          Category <span class="text-red-600">*</span>
+        </label>
+        <select
+          class="w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          id="category"
+          name="category"
+          required=""
+        >
+          <option disabled="" selected="" value="">
+            Select a category
+          </option>
+          <option value="technical">Technical Issue</option>
+          <option value="billing">Billing</option>
+          <option value="account">Account Management</option>
+          <option value="feature">Feature Request</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 font-medium mb-2" for="description">
+          Description <span class="text-red-600">*</span>
+        </label>
+        <textarea
+          class="w-full border border-gray-300 rounded-md px-4 py-3 resize-y focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          id="description"
+          name="description"
+          placeholder="Please provide a detailed description of your issue"
+          required=""
+          rows="6"
+        ></textarea>
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 font-medium mb-2" for="attachment">
+          Attachment (optional)
+        </label>
+        <input
+          accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+          class="w-full text-gray-700"
+          id="attachment"
+          name="attachment"
+          type="file"
+        />
+      </div>
+      <button
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        type="submit"
+      >
+        Submit Ticket
+      </button>
+    </form>
+    <div
+      class="max-w-3xl mx-auto mt-8"
+      id="responseMessage"
+      role="alert"
+      aria-live="polite"
+    ></div>
   </main>
   <footer class="bg-white border-t border-gray-200 mt-16">
-   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
-    <p>
-     © 2024 Support Center. All rights reserved.
-    </p>
-    <div class="flex space-x-6 mt-4 md:mt-0">
-     <a aria-label="Facebook" class="hover:text-blue-600" href="#">
-      <i class="fab fa-facebook fa-lg">
-      </i>
-     </a>
-     <a aria-label="Twitter" class="hover:text-blue-600" href="#">
-      <i class="fab fa-twitter fa-lg">
-      </i>
-     </a>
-     <a aria-label="LinkedIn" class="hover:text-blue-600" href="#">
-      <i class="fab fa-linkedin fa-lg">
-      </i>
-     </a>
-     <a aria-label="Instagram" class="hover:text-blue-600" href="#">
-      <i class="fab fa-instagram fa-lg">
-      </i>
-     </a>
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm"
+    >
+      <p>© 2024 Support Center. All rights reserved.</p>
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <a aria-label="Facebook" class="hover:text-blue-600" href="#"
+          ><i class="fab fa-facebook fa-lg"></i
+        ></a>
+        <a aria-label="Twitter" class="hover:text-blue-600" href="#"
+          ><i class="fab fa-twitter fa-lg"></i
+        ></a>
+        <a aria-label="LinkedIn" class="hover:text-blue-600" href="#"
+          ><i class="fab fa-linkedin fa-lg"></i
+        ></a>
+        <a aria-label="Instagram" class="hover:text-blue-600" href="#"
+          ><i class="fab fa-instagram fa-lg"></i
+        ></a>
+      </div>
     </div>
-   </div>
   </footer>
   <script>
-   const mobileMenuButton = document.getElementById('mobile-menu-button');
-   const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-   mobileMenuButton.addEventListener('click', () => {
-     mobileMenu.classList.toggle('hidden');
-   });
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
 
-   const form = document.getElementById('supportTicketForm');
-   const responseMessage = document.getElementById('responseMessage');
+    const form = document.getElementById("supportTicketForm");
+    const responseMessage = document.getElementById("responseMessage");
 
-   // Use localStorage key for tickets
-   const TICKETS_STORAGE_KEY = 'supportTickets';
+    // Use localStorage key for tickets
+    const TICKETS_STORAGE_KEY = "supportTickets";
 
-   form.addEventListener('submit', async (e) => {
-     e.preventDefault();
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-     // Clear previous messages
-     responseMessage.textContent = '';
-     responseMessage.className = '';
+      // Clear previous messages
+      responseMessage.textContent = "";
+      responseMessage.className = "";
 
-     // Validate form manually (HTML5 validation should handle most)
-     if (!form.checkValidity()) {
-       form.reportValidity();
-       return;
-     }
+      // Validate form manually (HTML5 validation should handle most)
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
 
-     // Collect form data
-     const formData = new FormData(form);
+      // Collect form data
+      const formData = new FormData(form);
 
-     // Prepare data to save
-     const ticket = {
-       id: crypto.randomUUID(),
-       name: formData.get('name').trim(),
-       email: formData.get('email').trim(),
-       subject: formData.get('subject').trim(),
-       category: formData.get('category'),
-       description: formData.get('description').trim(),
-       createdAt: new Date().toISOString(),
-       attachmentName: null,
-       attachmentType: null,
-       attachmentData: null
-     };
+      // Prepare data to save
+      const ticket = {
+        id: crypto.randomUUID(),
+        name: formData.get("name").trim(),
+        email: formData.get("email").trim(),
+        subject: formData.get("subject").trim(),
+        category: formData.get("category"),
+        description: formData.get("description").trim(),
+        createdAt: new Date().toISOString(),
+        attachmentName: null,
+        attachmentType: null,
+        attachmentData: null,
+        responses: [],
+        status: "Open",
+      };
 
-     // Handle attachment if any
-     const attachmentFile = formData.get('attachment');
-     if (attachmentFile && attachmentFile.size > 0) {
-       try {
-         ticket.attachmentData = await fileToBase64(attachmentFile);
-         ticket.attachmentName = attachmentFile.name;
-         ticket.attachmentType = attachmentFile.type;
-       } catch (err) {
-         responseMessage.textContent = 'Failed to read attachment file.';
-         responseMessage.className = 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md';
-         return;
-       }
-     }
+      // Handle attachment if any
+      const attachmentFile = formData.get("attachment");
+      if (attachmentFile && attachmentFile.size > 0) {
+        try {
+          ticket.attachmentData = await fileToBase64(attachmentFile);
+          ticket.attachmentName = attachmentFile.name;
+          ticket.attachmentType = attachmentFile.type;
+        } catch (err) {
+          responseMessage.textContent = "Failed to read attachment file.";
+          responseMessage.className =
+            "bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md";
+          return;
+        }
+      }
 
-     try {
-       // Get existing tickets from localStorage
-       const existingTickets = JSON.parse(localStorage.getItem(TICKETS_STORAGE_KEY)) || [];
+      try {
+        // Get existing tickets from localStorage
+        const existingTickets =
+          JSON.parse(localStorage.getItem(TICKETS_STORAGE_KEY)) || [];
 
-       // Add new ticket
-       existingTickets.push(ticket);
+        // Add new ticket
+        existingTickets.push(ticket);
 
-       // Save back to localStorage
-       localStorage.setItem(TICKETS_STORAGE_KEY, JSON.stringify(existingTickets));
+        // Save back to localStorage
+        localStorage.setItem(
+          TICKETS_STORAGE_KEY,
+          JSON.stringify(existingTickets)
+        );
 
-       // Show success message
-       responseMessage.textContent = 'Your support ticket has been submitted successfully. We will get back to you shortly.';
-       responseMessage.className = 'bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md';
+        // Show success message
+        responseMessage.textContent =
+          "Your support ticket has been submitted successfully. We will get back to you shortly.";
+        responseMessage.className =
+          "bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md";
 
-       form.reset();
-     } catch (error) {
-       responseMessage.textContent = 'There was an error submitting your ticket. Please try again later.';
-       responseMessage.className = 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md';
-     }
-   });
+        form.reset();
+      } catch (error) {
+        responseMessage.textContent =
+          "There was an error submitting your ticket. Please try again later.";
+        responseMessage.className =
+          "bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md";
+      }
+    });
 
-   function fileToBase64(file) {
-     return new Promise((resolve, reject) => {
-       const reader = new FileReader();
-       reader.readAsDataURL(file);
-       reader.onload = () => resolve(reader.result);
-       reader.onerror = error => reject(error);
-     });
-   }
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
+    }
   </script>
- </body>
-</html>     
+</body>
+</html>
