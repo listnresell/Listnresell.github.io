@@ -1,157 +1,176 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Admin Dashboard - Support Tickets</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Support Ticket
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
   <style>
-    body {
+   body {
       font-family: 'Inter', sans-serif;
     }
   </style>
-</head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
-  <header class="bg-white shadow p-4 flex items-center justify-between">
-    <h1 class="text-2xl font-semibold text-gray-800 flex items-center space-x-2">
-      <i class="fas fa-tachometer-alt"></i>
-      <span>Admin Dashboard - Support Tickets</span>
-    </h1>
-    <a
-      href="support-ticket.html"
-      class="text-blue-600 hover:text-blue-800 flex items-center space-x-1"
-      ><i class="fas fa-plus-circle"></i><span>New Ticket</span></a
-    >
+ </head>
+ <body class="bg-gray-50 min-h-screen flex flex-col">
+  <header class="bg-white shadow">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+     <h1 class="text-2xl font-semibold text-gray-900">
+      Support Center
+     </h1>
+     <nav class="hidden md:flex space-x-6 text-gray-700">
+      <a class="hover:text-blue-600 font-medium" href="#">
+       Home
+      </a>
+      <a class="hover:text-blue-600 font-medium" href="#">
+       Knowledge Base
+      </a>
+      <a class="hover:text-blue-600 font-medium" href="#">
+       Contact
+      </a>
+      <a class="hover:text-blue-600 font-medium" href="#">
+       Support Tickets
+      </a>
+     </nav>
+     <button aria-label="Open menu" class="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600" id="mobile-menu-button">
+      <i class="fas fa-bars fa-lg">
+      </i>
+     </button>
+    </div>
+   </div>
+   <div class="md:hidden hidden bg-white border-t border-gray-200" id="mobile-menu">
+    <nav class="px-4 py-3 space-y-1">
+     <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" href="#">
+      Home
+     </a>
+     <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" href="#">
+      Knowledge Base
+     </a>
+     <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" href="#">
+      Contact
+     </a>
+     <a class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" href="#">
+      Support Tickets
+     </a>
+    </nav>
+   </div>
   </header>
-
-  <main class="flex-grow max-w-7xl mx-auto p-6 w-full">
-    <section>
-      <h2 class="text-xl font-semibold text-gray-700 mb-4">Support Tickets</h2>
-      <div class="overflow-x-auto bg-white rounded-lg shadow">
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead class="bg-gray-100">
-            <tr>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Ticket ID
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Email
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Subject
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Description
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Status
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Created At
-              </th>
-            </tr>
-          </thead>
-          <tbody id="ticketsTableBody" class="bg-white divide-y divide-gray-200"></tbody>
-        </table>
-      </div>
-    </section>
+  <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+   <h2 class="text-3xl font-semibold text-gray-900 mb-8 text-center">
+    Submit a Support Ticket
+   </h2>
+   <form action="#" class="bg-white shadow-md rounded-lg p-8 max-w-3xl mx-auto" method="POST" novalidate="">
+    <div class="mb-6">
+     <label class="block text-gray-700 font-medium mb-2" for="name">
+      Full Name
+      <span class="text-red-600">
+       *
+      </span>
+     </label>
+     <input class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="name" name="name" placeholder="Your full name" required="" type="text"/>
+    </div>
+    <div class="mb-6">
+     <label class="block text-gray-700 font-medium mb-2" for="email">
+      Email Address
+      <span class="text-red-600">
+       *
+      </span>
+     </label>
+     <input class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+    </div>
+    <div class="mb-6">
+     <label class="block text-gray-700 font-medium mb-2" for="subject">
+      Subject
+      <span class="text-red-600">
+       *
+      </span>
+     </label>
+     <input class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="subject" name="subject" placeholder="Brief summary of your issue" required="" type="text"/>
+    </div>
+    <div class="mb-6">
+     <label class="block text-gray-700 font-medium mb-2" for="category">
+      Category
+      <span class="text-red-600">
+       *
+      </span>
+     </label>
+     <select class="w-full border border-gray-300 rounded-md px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="category" name="category" required="">
+      <option disabled="" selected="" value="">
+       Select a category
+      </option>
+      <option value="technical">
+       Technical Issue
+      </option>
+      <option value="billing">
+       Billing
+      </option>
+      <option value="account">
+       Account Management
+      </option>
+      <option value="feature">
+       Feature Request
+      </option>
+      <option value="other">
+       Other
+      </option>
+     </select>
+    </div>
+    <div class="mb-6">
+     <label class="block text-gray-700 font-medium mb-2" for="description">
+      Description
+      <span class="text-red-600">
+       *
+      </span>
+     </label>
+     <textarea class="w-full border border-gray-300 rounded-md px-4 py-3 resize-y focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="description" name="description" placeholder="Please provide a detailed description of your issue" required="" rows="6"></textarea>
+    </div>
+    <div class="mb-6">
+     <label class="block text-gray-700 font-medium mb-2" for="attachment">
+      Attachment (optional)
+     </label>
+     <input accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" class="w-full text-gray-700" id="attachment" name="attachment" type="file"/>
+    </div>
+    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" type="submit">
+     Submit Ticket
+    </button>
+   </form>
   </main>
-
+  <footer class="bg-white border-t border-gray-200 mt-16">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
+    <p>
+     © 2024 Support Center. All rights reserved.
+    </p>
+    <div class="flex space-x-6 mt-4 md:mt-0">
+     <a aria-label="Facebook" class="hover:text-blue-600" href="#">
+      <i class="fab fa-facebook fa-lg">
+      </i>
+     </a>
+     <a aria-label="Twitter" class="hover:text-blue-600" href="#">
+      <i class="fab fa-twitter fa-lg">
+      </i>
+     </a>
+     <a aria-label="LinkedIn" class="hover:text-blue-600" href="#">
+      <i class="fab fa-linkedin fa-lg">
+      </i>
+     </a>
+     <a aria-label="Instagram" class="hover:text-blue-600" href="#">
+      <i class="fab fa-instagram fa-lg">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
   <script>
-    // Utility to format ISO date string to readable format
-    function formatDate(isoString) {
-      const d = new Date(isoString);
-      return d.toLocaleString(undefined, {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-      });
-    }
+   const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    // Load tickets from localStorage
-    function loadTickets() {
-      const tickets = JSON.parse(localStorage.getItem('supportTickets')) || [];
-      return tickets;
-    }
-
-    // Render tickets table rows
-    function renderTickets() {
-      const tickets = loadTickets();
-      const tbody = document.getElementById('ticketsTableBody');
-      tbody.innerHTML = '';
-
-      if (tickets.length === 0) {
-        const tr = document.createElement('tr');
-        const td = document.createElement('td');
-        td.colSpan = 6;
-        td.className = 'px-6 py-4 text-center text-gray-500';
-        td.textContent = 'No support tickets found.';
-        tr.appendChild(td);
-        tbody.appendChild(tr);
-        return;
-      }
-
-      tickets.forEach((ticket) => {
-        const tr = document.createElement('tr');
-
-        // Ticket ID
-        const tdId = document.createElement('td');
-        tdId.className = 'px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-mono';
-        tdId.textContent = ticket.id;
-        tr.appendChild(tdId);
-
-        // Email
-        const tdEmail = document.createElement('td');
-        tdEmail.className = 'px-6 py-4 whitespace-nowrap text-sm text-gray-700';
-        tdEmail.textContent = ticket.email;
-        tr.appendChild(tdEmail);
-
-        // Subject
-        const tdSubject = document.createElement('td');
-        tdSubject.className = 'px-6 py-4 whitespace-nowrap text-sm text-gray-700 font-semibold';
-        tdSubject.textContent = ticket.subject;
-        tr.appendChild(tdSubject);
-
-        // Description (truncate if too long)
-        const tdDesc = document.createElement('td');
-        tdDesc.className = 'px-6 py-4 whitespace-nowrap text-sm text-gray-600 max-w-xs truncate';
-        tdDesc.title = ticket.description;
-        tdDesc.textContent = ticket.description;
-        tr.appendChild(tdDesc);
-
-        // Status
-        const tdStatus = document.createElement('td');
-        tdStatus.className = 'px-6 py-4 whitespace-nowrap text-sm';
-        const statusSpan = document.createElement('span');
-        statusSpan.className =
-          ticket.status === 'Open'
-            ? 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800'
-            : 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-300 text-gray-700';
-        statusSpan.textContent = ticket.status;
-        tdStatus.appendChild(statusSpan);
-        tr.appendChild(tdStatus);
-
-        // Created At
-        const tdCreated = document.createElement('td');
-        tdCreated.className = 'px-6 py-4 whitespace-nowrap text-sm text-gray-500';
-        tdCreated.textContent = formatDate(ticket.createdAt);
-        tr.appendChild(tdCreated);
-
-        tbody.appendChild(tr);
-      });
-    }
-
-    // Initial render
-    renderTickets();
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
   </script>
-</body>
+ </body>
 </html>
