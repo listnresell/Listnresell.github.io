@@ -1,15 +1,16 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Payment Support Price with Price List and Cart</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Montserrat&display=swap"
-    rel="stylesheet"
-  />
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Payment Support Price with Price List and Cart
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;family=Montserrat&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
-    body {
+   body {
       font-family: 'Share Tech Mono', monospace;
       background-color: #f3f5f4;
       margin: 0;
@@ -50,164 +51,261 @@
       gap: 0.5rem;
     }
   </style>
-</head>
-<body>
+ </head>
+ <body>
   <!-- Main page content -->
-  <div id="main-page" class="max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8">
-    <div class="flex justify-center mb-1">
-      <span class="text-[9px] font-montserrat text-gray-600">OFFICIAL RESELLER</span>
+  <div class="max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8" id="main-page">
+   <div class="flex justify-center mb-1">
+    <span class="text-[9px] font-montserrat text-gray-600">
+     OFFICIAL RESELLER
+    </span>
+   </div>
+   <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-10 mb-6 select-none top-bar">
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline" href="https://discord.gg/xAFYfCDzxS" rel="noopener noreferrer" target="_blank">
+     DISCORD
+    </a>
+    <button class="link-button" onclick="window.location.href='https://listn.dev'">
+     LISTN.DEV
+    </button>
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer" href="#" id="telegram-link">
+     TELEGRAM
+    </a>
+   </div>
+   <div class="flex justify-center mb-6 space-x-4">
+    <button class="bg-[#e6e6e6] text-[9px] font-montserrat text-gray-700 rounded-full px-4 py-1 select-none hover:bg-gray-300 transition" id="cart-btn">
+     CART
+    </button>
+    <button onclick="window.location.href='support-ticket.html'" class="bg-[#e6e6e6] text-[9px] font-montserrat text-gray-700 rounded-full px-4 py-1 select-none hover:bg-gray-300 transition">
+     CUSTOMER TICKET SUPPORT
+    </button>
+   </div>
+   <div class="flex flex-col sm:flex-row justify-between gap-6">
+    <div class="bg-[#b7b7b7] rounded-3xl p-6 w-full sm:w-1/3 min-h-[160px] flex flex-col items-center">
+     <h2 class="font-montserrat text-[12px] text-gray-900 border-b border-gray-700 pb-1 mb-2 select-none w-full text-center">
+      PAYMENT METHODS
+     </h2>
+     <p class="text-[13px] leading-5 text-gray-900 mt-3 text-center max-w-xs">
+      We currently accept BTC and PayPal only. However, it might change later on.
+     </p>
     </div>
-    <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-10 mb-6 select-none top-bar">
-      <a href="https://discord.gg/xAFYfCDzxS" target="_blank" rel="noopener noreferrer" class="text-[11px] font-montserrat text-gray-800 hover:underline">DISCORD</a>
-      <button class="link-button" onclick="window.location.href='https://listn.dev'">LISTN.DEV</button>
-      <a href="#" id="telegram-link" class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer">TELEGRAM</a>
+    <div class="bg-[#d1d1d1] rounded-3xl p-6 w-full sm:w-1/3 min-h-[160px] flex flex-col items-center">
+     <h2 class="font-montserrat text-[12px] text-gray-900 border-b border-gray-700 pb-1 mb-2 select-none w-full text-center">
+      SUPPORT
+     </h2>
+     <p class="text-[13px] leading-5 text-gray-900 mt-3 text-center max-w-xs">
+      By buying our software you’re ensured to get premium and lovely support that will help you with anything.
+     </p>
     </div>
-    <div class="flex justify-center mb-6">
-      <button id="cart-btn" class="bg-[#e6e6e6] text-[9px] font-montserrat text-gray-700 rounded-full px-4 py-1 select-none hover:bg-gray-300 transition">CART</button>
+    <div class="bg-[#b7b7b7] rounded-3xl p-6 w-full sm:w-1/3 min-h-[160px] flex flex-col items-center">
+     <h2 class="font-montserrat text-[12px] text-gray-900 border-b border-gray-700 pb-1 mb-2 select-none w-full text-center">
+      PRICE
+     </h2>
+     <p class="text-[13px] leading-5 text-gray-900 mt-3 text-center max-w-xs">
+      Our software is affordable for anyone, you can find the price list
+      <button class="text-blue-600 underline hover:text-blue-800 bg-transparent border-none p-0 cursor-pointer" id="show-price-list">
+       here
+      </button>
+      .
+     </p>
     </div>
-    <div class="flex flex-col sm:flex-row justify-between gap-6">
-      <div class="bg-[#b7b7b7] rounded-3xl p-6 w-full sm:w-1/3 min-h-[160px]">
-        <h2 class="font-montserrat text-[12px] text-gray-900 border-b border-gray-700 pb-1 mb-2 select-none">PAYMENT METHODS</h2>
-        <p class="text-[13px] leading-5 text-gray-900">
-          we currently<br />
-          accept btc and<br />
-          paypal only<br />
-          however it might<br />
-          change later on
-        </p>
-      </div>
-      <div class="bg-[#d1d1d1] rounded-3xl p-6 w-full sm:w-1/3 min-h-[160px]">
-        <h2 class="font-montserrat text-[12px] text-gray-900 border-b border-gray-700 pb-1 mb-2 select-none">SUPPORT</h2>
-        <p class="text-[13px] leading-5 text-gray-900">
-          By buying our<br />
-          software you’re<br />
-          ensured to get<br />
-          premium and<br />
-          lovely support<br />
-          that will help<br />
-          you with anything
-        </p>
-      </div>
-      <div class="bg-[#b7b7b7] rounded-3xl p-6 w-full sm:w-1/3 min-h-[160px]">
-        <h2 class="font-montserrat text-[12px] text-gray-900 border-b border-gray-700 pb-1 mb-2 select-none">PRICE</h2>
-        <p class="text-[13px] leading-5 text-gray-900">
-          our software is<br />
-          affordable for<br />
-          anyone, you can find<br />
-          the price list <button id="show-price-list" class="text-blue-600 underline hover:text-blue-800 bg-transparent border-none p-0 cursor-pointer">here</button>
-        </p>
-      </div>
-    </div>
+   </div>
   </div>
-
   <!-- Price list (hidden by default) -->
-  <div id="price-list" class="hidden max-w-5xl mx-auto mt-12 mb-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8">
-    <h1 class="font-montserrat text-gray-900 text-[18px] mb-6 select-none">Price List</h1>
-    <table class="w-full text-left border-collapse font-montserrat text-[13px] text-gray-900 mb-4">
-      <thead>
-        <tr class="border-b border-gray-700">
-          <th class="pb-2">Product</th>
-          <th class="pb-2">Price GBP</th>
-          <th class="pb-2">Price USD</th>
-          <th class="pb-2">Price EUR</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="border-b border-gray-500">
-          <td class="py-3">Fatality (listn.dev)</td>
-          <td class="py-3">7 GBP</td>
-          <td class="py-3">9.5 $</td>
-          <td class="py-3">8.5 €</td>
-        </tr>
-        <tr class="border-b border-gray-500 bg-[#d1d1d1]">
-          <td class="py-3">Plague Cheat</td>
-          <td class="py-3">6 GBP</td>
-          <td class="py-3">7.5 $</td>
-          <td class="py-3">6.8 €</td>
-        </tr>
-        <tr class="border-b border-gray-500">
-          <td class="py-3">Primordial (listn.dev)</td>
-          <td class="py-3">7 GBP</td>
-          <td class="py-3">9.5 $</td>
-          <td class="py-3">8.5 €</td>
-        </tr>
-        <tr class="border-b border-gray-500 bg-[#d1d1d1]">
-          <td class="py-3">Compkiller (listn.dev)</td>
-          <td class="py-3">6 GBP</td>
-          <td class="py-3">7.5 $</td>
-          <td class="py-3">6.8 €</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="font-montserrat text-[12px] text-gray-900 italic select-none">* All prices are for 1 month subscription.</p>
+  <div class="hidden max-w-5xl mx-auto mt-12 mb-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8" id="price-list">
+   <h1 class="font-montserrat text-gray-900 text-[18px] mb-6 select-none">
+    Price List
+   </h1>
+   <table class="w-full text-left border-collapse font-montserrat text-[13px] text-gray-900 mb-4">
+    <thead>
+     <tr class="border-b border-gray-700">
+      <th class="pb-2">
+       Product
+      </th>
+      <th class="pb-2">
+       Price GBP
+      </th>
+      <th class="pb-2">
+       Price USD
+      </th>
+      <th class="pb-2">
+       Price EUR
+      </th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr class="border-b border-gray-500">
+      <td class="py-3">
+       Fatality (listn.dev)
+      </td>
+      <td class="py-3">
+       7 GBP
+      </td>
+      <td class="py-3">
+       9.5 $
+      </td>
+      <td class="py-3">
+       8.5 €
+      </td>
+     </tr>
+     <tr class="border-b border-gray-500 bg-[#d1d1d1]">
+      <td class="py-3">
+       Plague Cheat
+      </td>
+      <td class="py-3">
+       6 GBP
+      </td>
+      <td class="py-3">
+       7.5 $
+      </td>
+      <td class="py-3">
+       6.8 €
+      </td>
+     </tr>
+     <tr class="border-b border-gray-500">
+      <td class="py-3">
+       Primordial (listn.dev)
+      </td>
+      <td class="py-3">
+       7 GBP
+      </td>
+      <td class="py-3">
+       9.5 $
+      </td>
+      <td class="py-3">
+       8.5 €
+      </td>
+     </tr>
+     <tr class="border-b border-gray-500 bg-[#d1d1d1]">
+      <td class="py-3">
+       Compkiller (listn.dev)
+      </td>
+      <td class="py-3">
+       6 GBP
+      </td>
+      <td class="py-3">
+       7.5 $
+      </td>
+      <td class="py-3">
+       6.8 €
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <p class="font-montserrat text-[12px] text-gray-900 italic select-none">
+    * All prices are for 1 month subscription.
+   </p>
   </div>
-
   <!-- Cart page (hidden by default) -->
-  <div id="cart-page" class="hidden max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8 min-h-[460px]">
-    <div class="flex justify-center mb-1">
-      <span class="text-[9px] font-montserrat text-gray-600">OFFICIAL RESELLER</span>
-    </div>
-    <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-10 mb-6 select-none top-bar">
-      <a href="https://discord.gg/xAFYfCDzxS" target="_blank" rel="noopener noreferrer" class="text-[11px] font-montserrat text-gray-800 hover:underline">DISCORD</a>
-      <button class="link-button" onclick="window.location.href='https://listn.dev'">LISTN.DEV</button>
-      <a href="#" id="telegram-link-cart" class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer">TELEGRAM</a>
-    </div>
-    <h1 class="font-montserrat text-gray-900 text-[18px] mb-6 select-none text-center">Your Cart</h1>
-    <div class="bg-[#b7b7b7] rounded-3xl p-6 max-w-md mx-auto">
-      <p class="font-montserrat text-gray-900 text-[14px] mb-4">Selected Subscription:</p>
-      <select id="subscription-select" class="w-full p-2 mb-6 rounded border border-gray-400 font-montserrat text-[13px]">
-        <option value="" disabled selected>Select a subscription</option>
-        <option value="Fatality (listn.dev)">Fatality (listn.dev) - 7 GBP / 9.5 $ / 8.5 €</option>
-        <option value="Plague Cheat">Plague Cheat - 6 GBP / 7.5 $ / 6.8 €</option>
-        <option value="Primordial (listn.dev)">Primordial (listn.dev) - 7 GBP / 9.5 $ / 8.5 €</option>
-        <option value="Compkiller (listn.dev)">Compkiller (listn.dev) - 6 GBP / 7.5 $ / 6.8 €</option>
-      </select>
-      <button id="proceed-btn" disabled class="w-full bg-blue-600 text-white font-montserrat text-[13px] py-2 rounded hover:bg-blue-700 transition cursor-not-allowed">Proceed to Payment Methods</button>
-      <button id="home-from-cart" class="w-full mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-montserrat text-[12px] px-3 py-1 rounded transition">HOME</button>
-    </div>
+  <div class="hidden max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8 min-h-[460px]" id="cart-page">
+   <div class="flex justify-center mb-1">
+    <span class="text-[9px] font-montserrat text-gray-600">
+     OFFICIAL RESELLER
+    </span>
+   </div>
+   <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-10 mb-6 select-none top-bar">
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline" href="https://discord.gg/xAFYfCDzxS" rel="noopener noreferrer" target="_blank">
+     DISCORD
+    </a>
+    <button class="link-button" onclick="window.location.href='https://listn.dev'">
+     LISTN.DEV
+    </button>
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer" href="#" id="telegram-link-cart">
+     TELEGRAM
+    </a>
+   </div>
+   <h1 class="font-montserrat text-gray-900 text-[18px] mb-6 select-none text-center">
+    Your Cart
+   </h1>
+   <div class="bg-[#b7b7b7] rounded-3xl p-6 max-w-md mx-auto">
+    <p class="font-montserrat text-gray-900 text-[14px] mb-4">
+     Selected Subscription:
+    </p>
+    <select class="w-full p-2 mb-6 rounded border border-gray-400 font-montserrat text-[13px]" id="subscription-select">
+     <option disabled="" selected="" value="">
+      Select a subscription
+     </option>
+     <option value="Fatality (listn.dev)">
+      Fatality (listn.dev) - 7 GBP / 9.5 $ / 8.5 €
+     </option>
+     <option value="Plague Cheat">
+      Plague Cheat - 6 GBP / 7.5 $ / 6.8 €
+     </option>
+     <option value="Primordial (listn.dev)">
+      Primordial (listn.dev) - 7 GBP / 9.5 $ / 8.5 €
+     </option>
+     <option value="Compkiller (listn.dev)">
+      Compkiller (listn.dev) - 6 GBP / 7.5 $ / 6.8 €
+     </option>
+    </select>
+    <button class="w-full bg-blue-600 text-white font-montserrat text-[13px] py-2 rounded hover:bg-blue-700 transition cursor-not-allowed" disabled="" id="proceed-btn">
+     Proceed to Payment Methods
+    </button>
+    <button class="w-full mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-montserrat text-[12px] px-3 py-1 rounded transition" id="home-from-cart">
+     HOME
+    </button>
+   </div>
   </div>
-
   <!-- Payment methods page (hidden by default) -->
-  <div id="payment-page" class="hidden max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8 min-h-[500px]">
-    <div class="flex justify-center mb-1">
-      <span class="text-[9px] font-montserrat text-gray-600">OFFICIAL RESELLER</span>
+  <div class="hidden max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8 min-h-[500px]" id="payment-page">
+   <div class="flex justify-center mb-1">
+    <span class="text-[9px] font-montserrat text-gray-600">
+     OFFICIAL RESELLER
+    </span>
+   </div>
+   <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-10 mb-6 select-none top-bar">
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline" href="https://discord.gg/xAFYfCDzxS" rel="noopener noreferrer" target="_blank">
+     DISCORD
+    </a>
+    <button class="link-button" onclick="window.location.href='https://listn.dev'">
+     LISTN.DEV
+    </button>
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer" href="#" id="telegram-link-payment">
+     TELEGRAM
+    </a>
+   </div>
+   <h1 class="font-montserrat text-gray-900 text-[18px] mb-6 select-none text-center">
+    Payment Methods
+   </h1>
+   <form class="max-w-md mx-auto space-y-6 font-montserrat text-gray-900 text-[14px]" id="payment-form">
+    <fieldset class="border border-gray-400 rounded p-4">
+     <legend class="font-semibold mb-2">
+      Choose a payment method:
+     </legend>
+     <label class="inline-flex items-center mb-2 cursor-pointer">
+      <input class="mr-2" name="payment-method" type="radio" value="PayPal"/>
+      <i class="fab fa-paypal text-blue-700 mr-1">
+      </i>
+      PayPal
+     </label>
+     <label class="inline-flex items-center cursor-pointer">
+      <input class="mr-2" name="payment-method" type="radio" value="BTC"/>
+      <i class="fab fa-bitcoin text-yellow-500 mr-1">
+      </i>
+      BTC (Bitcoin)
+     </label>
+    </fieldset>
+    <div>
+     <label class="block mb-1 font-semibold" for="referral-code">
+      Referral Code (optional):
+     </label>
+     <input class="w-full p-2 rounded border border-gray-400" id="referral-code" name="referral-code" placeholder="Enter referral code" type="text"/>
     </div>
-    <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-10 mb-6 select-none top-bar">
-      <a href="https://discord.gg/xAFYfCDzxS" target="_blank" rel="noopener noreferrer" class="text-[11px] font-montserrat text-gray-800 hover:underline">DISCORD</a>
-      <button class="link-button" onclick="window.location.href='https://listn.dev'">LISTN.DEV</button>
-      <a href="#" id="telegram-link-payment" class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer">TELEGRAM</a>
+    <div>
+     <label class="block mb-1 font-semibold" for="discount-code">
+      Discount Code (optional):
+     </label>
+     <input class="w-full p-2 rounded border border-gray-400" id="discount-code" name="discount-code" placeholder="Enter discount code" type="text"/>
     </div>
-    <h1 class="font-montserrat text-gray-900 text-[18px] mb-6 select-none text-center">Payment Methods</h1>
-    <form id="payment-form" class="max-w-md mx-auto space-y-6 font-montserrat text-gray-900 text-[14px]">
-      <fieldset class="border border-gray-400 rounded p-4">
-        <legend class="font-semibold mb-2">Choose a payment method:</legend>
-        <label class="inline-flex items-center mb-2 cursor-pointer">
-          <input type="radio" name="payment-method" value="PayPal" class="mr-2" />
-          PayPal
-        </label>
-        <label class="inline-flex items-center cursor-pointer">
-          <input type="radio" name="payment-method" value="BTC" class="mr-2" />
-          BTC (Bitcoin)
-        </label>
-      </fieldset>
-
-      <div>
-        <label for="referral-code" class="block mb-1 font-semibold">Referral Code (optional):</label>
-        <input type="text" id="referral-code" name="referral-code" placeholder="Enter referral code" class="w-full p-2 rounded border border-gray-400" />
-      </div>
-
-      <div>
-        <label for="discount-code" class="block mb-1 font-semibold">Discount Code (optional):</label>
-        <input type="text" id="discount-code" name="discount-code" placeholder="Enter discount code" class="w-full p-2 rounded border border-gray-400" />
-      </div>
-
-      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition font-montserrat text-[14px] cursor-pointer">Submit Payment</button>
-      <button type="button" id="home-from-payment" class="w-full mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-montserrat text-[12px] px-3 py-1 rounded transition">HOME</button>
-    </form>
+    <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition font-montserrat text-[14px] cursor-pointer" type="submit">
+     Submit Payment
+    </button>
+    <button class="w-full mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-montserrat text-[12px] px-3 py-1 rounded transition" id="home-from-payment" type="button">
+     HOME
+    </button>
+   </form>
   </div>
-
   <script>
-    // Show price list when clicking "here" button
+   // Show price list when clicking "here" button
     document.getElementById('show-price-list').addEventListener('click', () => {
       const priceList = document.getElementById('price-list');
       if (priceList.classList.contains('hidden')) {
@@ -305,5 +403,5 @@
       }
     });
   </script>
-</body>
+ </body>
 </html>
