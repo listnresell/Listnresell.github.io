@@ -175,12 +175,23 @@
         Submit Ticket
       </button>
     </form>
-    <div
-      class="max-w-3xl mx-auto mt-8"
-      id="responseMessage"
-      role="alert"
+
+    <section
+      id="userTicketsSection"
+      class="max-w-3xl mx-auto mt-12 bg-white shadow-md rounded-lg p-6"
       aria-live="polite"
-    ></div>
+    >
+      <h3 class="text-2xl font-semibold text-gray-900 mb-6 text-center">
+        Your Submitted Tickets & Responses
+      </h3>
+      <div id="userTicketsContainer" class="space-y-6"></div>
+      <p
+        id="noTicketsMessage"
+        class="text-center text-gray-600 italic hidden"
+      >
+        You have not submitted any tickets yet.
+      </p>
+    </section>
   </main>
   <footer class="bg-white border-t border-gray-200 mt-16">
     <div
@@ -213,31 +224,177 @@
 
     const form = document.getElementById("supportTicketForm");
     const responseMessage = document.getElementById("responseMessage");
+    const userTicketsContainer = document.getElementById("userTicketsContainer");
+    const noTicketsMessage = document.getElementById("noTicketsMessage");
 
     // Use localStorage key for tickets
     const TICKETS_STORAGE_KEY = "supportTickets";
+    // Use localStorage key for current user email to identify tickets
+    const CURRENT_USER_EMAIL_KEY = "currentUserEmail";
 
+    // Save current user email to localStorage for session-like behavior
+    function saveCurrentUserEmail(email) {
+      localStorage.setItem(CURRENT_USER_EMAIL_KEY, email.toLowerCase());
+    }
+
+    // Get current user email from localStorage
+    function getCurrentUserEmail() {
+      return localStorage.getItem(CURRENT_USER_EMAIL_KEY) || null;
+    }
+
+    // Format date nicely
+    function formatDate(isoString) {
+      const d = new Date(isoString);
+      return d.toLocaleString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    }
+
+    // Render user's tickets and their responses
+    function renderUserTickets() {
+      const currentUserEmail = getCurrentUserEmail();
+      if (!currentUserEmail) {
+        userTicketsContainer.innerHTML = "";
+        noTicketsMessage.textContent =
+          "Please submit a ticket first to see your tickets and responses.";
+        noTicketsMessage.classList.remove("hidden");
+        return;
+      }
+
+      const tickets = JSON.parse(localStorage.getItem(TICKETS_STORAGE_KEY)) || [];
+      const userTickets = tickets.filter(
+        (t) => t.email.toLowerCase() === currentUserEmail
+      );
+
+      if (userTickets.length === 0) {
+        userTicketsContainer.innerHTML = "";
+        noTicketsMessage.textContent = "You have not submitted any tickets yet.";
+        noTicketsMessage.classList.remove("hidden");
+        return;
+      }
+
+      noTicketsMessage.classList.add("hidden");
+      userTicketsContainer.innerHTML = "";
+
+      userTickets.forEach((ticket) => {
+        const card = document.createElement("div");
+        card.className =
+          "border border-gray-300 rounded-md p-4 bg-white shadow-sm";
+
+        const header = document.createElement("div");
+        header.className = "flex justify-between items-center";
+
+        const subject = document.createElement("h4");
+        subject.className = "text-lg font-semibold text-gray-900";
+        subject.textContent = ticket.subject;
+
+        const status = document.createElement("span");
+        status.className =
+          "text-sm font-semibold px-2 py-1 rounded-full " +
+          (ticket.status === "Open"
+            ? "bg-yellow-100 text-yellow-800"
+            : ticket.status === "Responded"
+            ? "bg-green-100 text-green-800"
+            : "bg-gray-100 text-gray-700");
+        status.textContent = ticket.status;
+
+        header.appendChild(subject);
+        header.appendChild(status);
+
+        const createdAt = document.createElement("p");
+        createdAt.className = "text-xs text-gray-500 mt-1";
+        createdAt.textContent = `Created: ${formatDate(ticket.createdAt)}`;
+
+        const description = document.createElement("p");
+        description.className = "mt-3 text-gray-700 whitespace-pre-wrap";
+        description.textContent = ticket.description;
+
+        // Attachment if exists
+        let attachmentBlock = null;
+        if (ticket.attachmentData) {
+          attachmentBlock = document.createElement("div");
+          attachmentBlock.className = "mt-3";
+          const attachLink = document.createElement("a");
+          attachLink.href = ticket.attachmentData;
+          attachLink.download = ticket.attachmentName;
+          attachLink.target = "_blank";
+          attachLink.rel = "noopener noreferrer";
+          attachLink.className =
+            "text-blue-600 hover:underline flex items-center space-x-2";
+          const attachIcon = document.createElement("i");
+          attachIcon.className = "fas fa-paperclip";
+          const attachNameSpan = document.createElement("span");
+          attachNameSpan.textContent = ticket.attachmentName;
+          attachLink.appendChild(attachIcon);
+          attachLink.appendChild(attachNameSpan);
+          attachmentBlock.appendChild(attachLink);
+        }
+
+        // Responses block
+        const responsesBlock = document.createElement("div");
+        responsesBlock.className = "mt-4";
+        const responsesTitle = document.createElement("h5");
+        responsesTitle.className = "font-semibold text-gray-900 mb-2";
+        responsesTitle.textContent = "Responses";
+        responsesBlock.appendChild(responsesTitle);
+
+        if (ticket.responses.length === 0) {
+          const noResponses = document.createElement("p");
+          noResponses.className = "text-gray-600 italic";
+          noResponses.textContent = "No responses yet.";
+          responsesBlock.appendChild(noResponses);
+        } else {
+          ticket.responses.forEach((resp) => {
+            const respDiv = document.createElement("div");
+            respDiv.className =
+              "border border-gray-300 rounded-md p-3 mb-3 bg-gray-50";
+
+            const respDate = document.createElement("p");
+            respDate.className = "text-xs text-gray-500 mb-1";
+            respDate.textContent = `On ${formatDate(resp.date)}`;
+
+            const respText = document.createElement("p");
+            respText.className = "text-gray-700 whitespace-pre-wrap";
+            respText.textContent = resp.text;
+
+            respDiv.appendChild(respDate);
+            respDiv.appendChild(respText);
+            responsesBlock.appendChild(respDiv);
+          });
+        }
+
+        card.appendChild(header);
+        card.appendChild(createdAt);
+        card.appendChild(description);
+        if (attachmentBlock) card.appendChild(attachmentBlock);
+        card.appendChild(responsesBlock);
+
+        userTicketsContainer.appendChild(card);
+      });
+    }
+
+    // On form submit, save ticket and store user email for session
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Clear previous messages
       responseMessage.textContent = "";
       responseMessage.className = "";
 
-      // Validate form manually (HTML5 validation should handle most)
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
 
-      // Collect form data
       const formData = new FormData(form);
 
-      // Prepare data to save
       const ticket = {
         id: crypto.randomUUID(),
         name: formData.get("name").trim(),
-        email: formData.get("email").trim(),
+        email: formData.get("email").trim().toLowerCase(),
         subject: formData.get("subject").trim(),
         category: formData.get("category"),
         description: formData.get("description").trim(),
@@ -249,7 +406,6 @@
         status: "Open",
       };
 
-      // Handle attachment if any
       const attachmentFile = formData.get("attachment");
       if (attachmentFile && attachmentFile.size > 0) {
         try {
@@ -265,26 +421,28 @@
       }
 
       try {
-        // Get existing tickets from localStorage
         const existingTickets =
           JSON.parse(localStorage.getItem(TICKETS_STORAGE_KEY)) || [];
 
-        // Add new ticket
         existingTickets.push(ticket);
 
-        // Save back to localStorage
         localStorage.setItem(
           TICKETS_STORAGE_KEY,
           JSON.stringify(existingTickets)
         );
 
-        // Show success message
+        // Save current user email for session
+        saveCurrentUserEmail(ticket.email);
+
         responseMessage.textContent =
           "Your support ticket has been submitted successfully. We will get back to you shortly.";
         responseMessage.className =
           "bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-md";
 
         form.reset();
+
+        // Refresh user tickets display
+        renderUserTickets();
       } catch (error) {
         responseMessage.textContent =
           "There was an error submitting your ticket. Please try again later.";
@@ -293,6 +451,7 @@
       }
     });
 
+    // Convert file to base64 string
     function fileToBase64(file) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -301,6 +460,11 @@
         reader.onerror = (error) => reject(error);
       });
     }
+
+    // On page load, render tickets for current user if any
+    window.addEventListener("load", () => {
+      renderUserTickets();
+    });
   </script>
 </body>
 </html>
