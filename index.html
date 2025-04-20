@@ -1,12 +1,11 @@
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" name="viewport"/>
   <title>
    Payment Support Price with Price List and Cart
   </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;family=Montserrat&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
@@ -15,6 +14,7 @@
       background-color: #f3f5f4;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
     .font-montserrat {
       font-family: 'Montserrat', sans-serif;
@@ -49,25 +49,26 @@
     }
     .top-bar {
       gap: 0.5rem;
+      flex-wrap: wrap;
     }
   </style>
  </head>
  <body>
   <!-- Main page content -->
-  <div class="max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8" id="main-page">
+  <div class="max-w-[95vw] sm:max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-4 sm:px-6 py-8" id="main-page">
    <div class="flex justify-center mb-1">
     <span class="text-[9px] font-montserrat text-gray-600">
      OFFICIAL RESELLER
     </span>
    </div>
-   <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-10 mb-6 select-none top-bar">
-    <a class="text-[11px] font-montserrat text-gray-800 hover:underline" href="https://discord.gg/xAFYfCDzxS" rel="noopener noreferrer" target="_blank">
+   <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-4 sm:px-10 mb-6 select-none top-bar">
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline whitespace-nowrap" href="https://discord.gg/xAFYfCDzxS" rel="noopener noreferrer" target="_blank">
      DISCORD
     </a>
-    <button class="link-button" onclick="window.location.href='https://listn.dev'">
+    <button class="link-button whitespace-nowrap" onclick="window.location.href='https://listn.dev'">
      LISTN.DEV
     </button>
-    <a class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer" href="#" id="telegram-link">
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer whitespace-nowrap" href="#" id="telegram-link">
      TELEGRAM
     </a>
    </div>
@@ -108,11 +109,11 @@
    </div>
   </div>
   <!-- Price list (hidden by default) -->
-  <div class="hidden max-w-5xl mx-auto mt-12 mb-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8" id="price-list">
+  <div class="hidden max-w-[95vw] sm:max-w-5xl mx-auto mt-12 mb-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-4 sm:px-6 py-8 overflow-x-auto" id="price-list">
    <h1 class="font-montserrat text-gray-900 text-[18px] mb-6 select-none">
     Price List
    </h1>
-   <table class="w-full text-left border-collapse font-montserrat text-[13px] text-gray-900 mb-4">
+   <table class="w-full min-w-[400px] text-left border-collapse font-montserrat text-[13px] text-gray-900 mb-4">
     <thead>
      <tr class="border-b border-gray-700">
       <th class="pb-2">
@@ -193,27 +194,27 @@
    </p>
   </div>
   <!-- Cart page (hidden by default) -->
-  <div class="hidden max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8 min-h-[460px]" id="cart-page">
+  <div class="hidden max-w-[95vw] sm:max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-4 sm:px-6 py-8 min-h-[460px]" id="cart-page">
    <div class="flex justify-center mb-1">
     <span class="text-[9px] font-montserrat text-gray-600">
      OFFICIAL RESELLER
     </span>
    </div>
-   <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-10 mb-6 select-none top-bar">
-    <a class="text-[11px] font-montserrat text-gray-800 hover:underline" href="https://discord.gg/xAFYfCDzxS" rel="noopener noreferrer" target="_blank">
+   <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-4 sm:px-10 mb-6 select-none top-bar">
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline whitespace-nowrap" href="https://discord.gg/xAFYfCDzxS" rel="noopener noreferrer" target="_blank">
      DISCORD
     </a>
-    <button class="link-button" onclick="window.location.href='https://listn.dev'">
+    <button class="link-button whitespace-nowrap" onclick="window.location.href='https://listn.dev'">
      LISTN.DEV
     </button>
-    <a class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer" href="#" id="telegram-link-cart">
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer whitespace-nowrap" href="#" id="telegram-link-cart">
      TELEGRAM
     </a>
    </div>
    <h1 class="font-montserrat text-gray-900 text-[18px] mb-6 select-none text-center">
     Your Cart
    </h1>
-   <div class="bg-[#b7b7b7] rounded-3xl p-6 max-w-md mx-auto">
+   <div class="bg-[#b7b7b7] rounded-3xl p-6 max-w-md mx-auto w-full">
     <p class="font-montserrat text-gray-900 text-[14px] mb-4">
      Selected Subscription:
     </p>
@@ -243,20 +244,20 @@
    </div>
   </div>
   <!-- Payment methods page (hidden by default) -->
-  <div class="hidden max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-6 py-8 min-h-[500px]" id="payment-page">
+  <div class="hidden max-w-[95vw] sm:max-w-5xl mx-auto mt-20 bg-gradient-to-b from-[#c1c1c1] to-[#8f8f8f] rounded-lg px-4 sm:px-6 py-8 min-h-[500px]" id="payment-page">
    <div class="flex justify-center mb-1">
     <span class="text-[9px] font-montserrat text-gray-600">
      OFFICIAL RESELLER
     </span>
    </div>
-   <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-10 mb-6 select-none top-bar">
-    <a class="text-[11px] font-montserrat text-gray-800 hover:underline" href="https://discord.gg/xAFYfCDzxS" rel="noopener noreferrer" target="_blank">
+   <div class="flex justify-center items-center bg-[#a3a3a3] rounded-full py-1 px-4 sm:px-10 mb-6 select-none top-bar">
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline whitespace-nowrap" href="https://discord.gg/xAFYfCDzxS" rel="noopener noreferrer" target="_blank">
      DISCORD
     </a>
-    <button class="link-button" onclick="window.location.href='https://listn.dev'">
+    <button class="link-button whitespace-nowrap" onclick="window.location.href='https://listn.dev'">
      LISTN.DEV
     </button>
-    <a class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer" href="#" id="telegram-link-payment">
+    <a class="text-[11px] font-montserrat text-gray-800 hover:underline cursor-pointer whitespace-nowrap" href="#" id="telegram-link-payment">
      TELEGRAM
     </a>
    </div>
@@ -270,14 +271,12 @@
      </legend>
      <label class="inline-flex items-center mb-2 cursor-pointer">
       <input class="mr-2" name="payment-method" type="radio" value="PayPal"/>
-      <i class="fab fa-paypal text-blue-700 mr-1">
-      </i>
+      <i class="fab fa-paypal text-blue-700 mr-1"></i>
       PayPal
      </label>
      <label class="inline-flex items-center cursor-pointer">
       <input class="mr-2" name="payment-method" type="radio" value="BTC"/>
-      <i class="fab fa-bitcoin text-yellow-500 mr-1">
-      </i>
+      <i class="fab fa-bitcoin text-yellow-500 mr-1"></i>
       BTC (Bitcoin)
      </label>
     </fieldset>
